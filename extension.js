@@ -35,10 +35,10 @@ function activate(context) {
                 const end = new Position(line, character + 50);
                 const biggerRange = new Range(start, end);
                 const wordInRange = document.getText(biggerRange);
-                let reg = /i18n\(['"](\w+)['"]\)/g
+                let reg = /i18n\(([^\)]*)\)/g
                 let str = ''
                 wordInRange.replace(reg, (...args) => {
-                    console.log('args: ', args);
+                    // consosle.log('args: ', args);
                     str = args[1]
                 })
                 if (str) {
